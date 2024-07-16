@@ -9,7 +9,7 @@ oclient = OpenAI(api_key=private_data.aikey)
 def get_embedding_list(texts, model="text-embedding-3-large"):
    return oclient.embeddings.create(input = texts, model=model).data[0].embedding
 
-topic = "생일"
+topic = "사회"
 emb = get_embedding_list(topic)
 print(Client.table("category").insert({"title": topic, "embedding": emb}).execute())
 
